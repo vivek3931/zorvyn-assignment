@@ -121,7 +121,6 @@ export default function Transactions() {
 
   return (
     <motion.div className="space-y-5" variants={containerVariants} initial="hidden" animate="visible">
-      {/* Header */}
       <motion.div variants={headerVariants} className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Transactions</h1>
@@ -174,7 +173,6 @@ export default function Transactions() {
         )}
       </motion.div>
 
-      {/* Filters */}
       <motion.div variants={headerVariants} className="flex flex-wrap items-center gap-2">
         <div className="relative flex-1 min-w-[180px] max-w-xs">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -213,7 +211,6 @@ export default function Transactions() {
         )}
       </motion.div>
 
-      {/* Table */}
       <motion.div variants={headerVariants} className="rounded-lg border bg-card overflow-hidden shadow-sm">
         <Table>
           <TableHeader>
@@ -241,7 +238,7 @@ export default function Transactions() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="wait">
               {paginated.length === 0 ? (
                 <TableRow key="empty">
                   <TableCell colSpan={role === "admin" ? 6 : 5} className="h-40 text-center text-muted-foreground">
@@ -259,7 +256,6 @@ export default function Transactions() {
                     initial="hidden"
                     animate={deletingId === tx.id ? "exit" : "visible"}
                     exit="exit"
-                    layout
                     className="border-b last:border-0 hover:bg-muted/30 transition-colors duration-150 cursor-default"
                   >
                     <TableCell className="text-xs text-muted-foreground whitespace-nowrap font-medium py-3">
@@ -314,16 +310,15 @@ export default function Transactions() {
         </Table>
       </motion.div>
 
-      {/* Pagination */}
-      <motion.div variants={headerVariants} className="flex items-center justify-between pt-1">
-        <div className="text-xs text-muted-foreground">
+      <motion.div variants={headerVariants} className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+        <div className="text-xs text-muted-foreground w-full sm:w-auto text-center sm:text-left">
           Showing <span className="font-medium text-foreground">{Math.min((safePage - 1) * PAGE_SIZE + 1, filtered.length)}</span>
           {" – "}
           <span className="font-medium text-foreground">{Math.min(safePage * PAGE_SIZE, filtered.length)}</span>
           {" of "}
           <span className="font-medium text-foreground">{filtered.length}</span> results
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-center gap-1 w-full sm:w-auto">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.93 }}>
             <Button variant="outline" size="sm" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={safePage === 1} className="h-8 w-8 p-0">
               <ChevronLeft className="h-4 w-4" />
@@ -332,7 +327,7 @@ export default function Transactions() {
           {Array.from({ length: totalPages }, (_, i) => i + 1)
             .filter(p => p === 1 || p === totalPages || Math.abs(p - safePage) <= 1)
             .reduce((acc, p, idx, arr) => {
-              if (idx > 0 && p - arr[idx - 1] > 1) acc.push("…");
+              if (idx > 0 && p - arr[idx - 1] * 1 > 1) acc.push("…");
               acc.push(p);
               return acc;
             }, [])

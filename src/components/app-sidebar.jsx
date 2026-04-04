@@ -43,7 +43,6 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="sidebar" className="border-r border-sidebar-border bg-sidebar">
-      {/* Logo */}
       <SidebarHeader className="px-5 h-14 flex items-center border-b border-sidebar-border shrink-0">
         <img
           src="https://companyasset.blob.core.windows.net/assets/zorvynfulllogolight.png"
@@ -53,12 +52,10 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent className="flex flex-col gap-0 px-3 pt-5 pb-3">
-        {/* Nav label */}
         <p className="px-2 mb-2 text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/40 select-none">
           Navigation
         </p>
 
-        {/* Nav items */}
         <nav className="space-y-0.5">
           {navItems.map((item) => {
             const isActive = location === item.url;
@@ -73,7 +70,6 @@ export function AppSidebar() {
                       : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
                   }`}
                 >
-                  {/* Active indicator */}
                   {isActive && (
                     <motion.div
                       layoutId="nav-pill"
@@ -82,12 +78,10 @@ export function AppSidebar() {
                     />
                   )}
 
-                  {/* Icon */}
                   <div className={`shrink-0 ${isActive ? "text-sidebar-primary" : "text-sidebar-foreground/50 group-hover:text-sidebar-foreground/80"}`}>
                     <item.icon className="h-4 w-4" strokeWidth={isActive ? 2.2 : 1.8} />
                   </div>
 
-                  {/* Label */}
                   <span className={`text-sm leading-none ${isActive ? "font-semibold" : "font-medium"}`}>
                     {item.title}
                   </span>
@@ -97,7 +91,6 @@ export function AppSidebar() {
           })}
         </nav>
 
-        {/* Balance snapshot */}
         <div className="mt-6 mx-1">
           <p className="px-1 mb-2 text-[10px] font-semibold uppercase tracking-widest text-sidebar-foreground/40 select-none">
             Quick Stats
@@ -122,7 +115,6 @@ export function AppSidebar() {
                 −{formatCurrency(summary.totalExpenses)}
               </span>
             </div>
-            {/* Income bar */}
             <div className="space-y-1 pt-1">
               <div className="h-1 w-full rounded-full bg-sidebar-border overflow-hidden">
                 <motion.div
@@ -145,7 +137,6 @@ export function AppSidebar() {
         </div>
       </SidebarContent>
 
-      {/* Footer */}
       <SidebarFooter className="px-4 py-4 border-t border-sidebar-border">
         <div className="flex items-center gap-3">
           <div className="h-8 w-8 rounded-full border border-sidebar-primary/30 flex items-center justify-center shrink-0">

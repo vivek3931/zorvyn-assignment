@@ -93,17 +93,14 @@ export default function Settings() {
       initial="hidden"
       animate="visible"
     >
-      {/* Header */}
       <motion.div variants={itemVariants}>
         <h1 className="text-2xl font-bold tracking-tight">Settings</h1>
         <p className="text-sm text-muted-foreground mt-1">Manage your preferences and account access.</p>
       </motion.div>
 
       <div className="space-y-8">
-        {/* Divider line */}
         <motion.div variants={itemVariants} className="border-t" />
 
-        {/* Role Access */}
         <SettingSection
           title="Role Access"
           description="Controls what you can see and do across the dashboard. Switching roles takes effect immediately."
@@ -120,7 +117,6 @@ export default function Settings() {
                   isActive ? "bg-accent/5" : ""
                 }`}
               >
-                {/* Active left bar */}
                 <AnimatePresence>
                   {isActive && (
                     <motion.div
@@ -171,7 +167,6 @@ export default function Settings() {
 
         <motion.div variants={itemVariants} className="border-t" />
 
-        {/* Appearance */}
         <SettingSection
           title="Appearance"
           description="Choose your preferred theme. Your selection is saved automatically."
@@ -207,13 +202,8 @@ export default function Settings() {
           </SettingRow>
         </SettingSection>
 
-        {/* Data Management — admin only */}
         {role === "admin" && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+          <div className="animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="border-t mb-8" />
             <SettingSection
               title="Data Management"
@@ -267,7 +257,7 @@ export default function Settings() {
                 </motion.div>
               </div>
             </SettingSection>
-          </motion.div>
+          </div>
         )}
       </div>
     </motion.div>

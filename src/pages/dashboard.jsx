@@ -180,7 +180,6 @@ export default function Dashboard() {
         </motion.div>
       </div>
 
-      {/* Quick summary bar */}
       <motion.div variants={chartVariants}>
         <Card className="hover:shadow-md transition-shadow duration-200">
           <CardContent className="pt-5 pb-4">

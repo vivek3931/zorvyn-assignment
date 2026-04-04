@@ -53,7 +53,7 @@ export default function Insights() {
         <p className="text-muted-foreground mt-1">Spending patterns and financial observations from your data.</p>
       </motion.div>
 
-      {/* Top 3 KPI cards */}
+
       <div className="grid gap-4 md:grid-cols-3">
         <motion.div variants={itemVariants}>
           <Card className="bg-primary text-primary-foreground h-full hover:shadow-lg transition-shadow duration-200">
@@ -133,7 +133,7 @@ export default function Insights() {
         </motion.div>
       </div>
 
-      {/* Category bar chart */}
+
       <motion.div variants={itemVariants}>
         <Card className="hover:shadow-md transition-shadow duration-200">
           <CardHeader>
@@ -163,7 +163,7 @@ export default function Insights() {
         </Card>
       </motion.div>
 
-      {/* Averages + monthly balance */}
+
       <div className="grid gap-4 md:grid-cols-2">
         <motion.div variants={itemVariants}>
           <Card className="h-full hover:shadow-md transition-shadow duration-200">
