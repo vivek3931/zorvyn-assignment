@@ -14,6 +14,7 @@ import Dashboard from "@/pages/dashboard";
 import Transactions from "@/pages/transactions";
 import Insights from "@/pages/insights";
 import Settings from "@/pages/settings";
+import Chatbot from "@/components/chatbot/chatbot";
 
 function Layout({ children }) {
   return (
@@ -63,6 +64,7 @@ function App() {
               </Layout>
             </WouterRouter>
             <Toaster />
+            <Chatbot />
           </TooltipProvider>
         </RoleProvider>
       </DataStoreProvider>
